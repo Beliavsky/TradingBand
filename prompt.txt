@@ -1,0 +1,38 @@
+Translate the Python program composed of trading_band.py and xtrading_band.py to Fortran.
+The Python program simulates trading policies with no-trade bands under proportional
+transaction costs. Run the Python program to see the output and make the output
+of the Fortran program as similar as possible.
+
+Add brief comments within the main program and each
+procedure explaining what they do. Format the comments so that the FORD
+tool can produce documenation from them.
+
+Use !! for documentation comments attached to the nearest code element
+(module, submodule, procedure, variable) that precedes the comment
+line.
+
+Place !! comments on the same line as a declaration or on following
+lines immediately after the declaration.
+
+For multi-line doc blocks, start with !!* and then continue the block
+with single-bang ! lines; they’ll be joined to the same doc block.
+
+Assume that the gfortran compiler is installed. Use the compiler options
+-O0 -Wall -Werror=unused-parameter -Werror=unused-variable -Werror=unused-function -Wno-maybe-uninitialized -Wno-surprising -fbounds-check -static -g -fmodule-private
+
+Verify that program also compiles and runs with the ifx compiler using the options
+/nologo /traceback /check:bounds /check:uninit /warn:all /warn:unused /gen-interfaces /warn:interfaces /F512000000
+
+Create a batch file compile.bat that compiles the source files into executables using gfortran and ifx.
+
+To check style, run fortitude check foo.f90 for each source file foo.f90 you create
+after you verify that it compiles. Leave the executables created by the compilers in the
+current directory.
+
+Create a new git repository and commit source files to git once they
+compile and run properly. Assume git commands are available.
+
+Once the code is finished, use ford to create documentation from the comments
+you have embedded in the code.
+
+If any of python, gfortran, ifx, ford, fortitude, or git are unavailable, give an error message and quit.
